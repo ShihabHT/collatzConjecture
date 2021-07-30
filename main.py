@@ -47,7 +47,6 @@ if __name__ == '__main__':
         if steps == 16:
             stepsCount += 1
             print(x, "takes", steps, "steps")
-        print(x, "Takes", steps, "steps\n")
 
     print("Total 16 steps takes", stepsCount, "numbers")
     turtle.done()
