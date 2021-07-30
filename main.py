@@ -1,5 +1,10 @@
 # Collatz Conjecture
 import turtle
+from colour import Color
+
+colorList = list(Color("blue").range_to(Color("red"), 90))
+# for x in colorList:
+#     print(str(x))
 
 startX = 1000
 startY = 100
@@ -13,8 +18,8 @@ turtle.Screen().setworldcoordinates(0, 0, 1920, 1080)
 
 t = turtle.Turtle()
 t.penup()
-t.pencolor("blue")
-t.pensize(4)
+# t.pencolor("blue")
+t.pensize(2)
 turtle.tracer(2, 0)
 
 
@@ -23,6 +28,8 @@ def get_steps(num):
     t.setheading(90)
     t.pendown()
     count = 0
+    colorIndex = 0
+    t.pencolor(str(colorList[colorIndex]))
     while num != 1:
         if num % 2 == 0:
             t.right(turnRightAngle)
@@ -34,6 +41,10 @@ def get_steps(num):
             t.forward(travelLength)
             num = num * 3 + 1
             count += 1
+            colorIndex += 1
+            t.pencolor(str(colorList[colorIndex]))
+        print(count)
+
 
     t.penup()
     return count
@@ -41,7 +52,7 @@ def get_steps(num):
 
 if __name__ == '__main__':
     stepsCount = 0
-    for x in range(10000, 10100):
+    for x in range(1000, 1100):
         print("Working on", x)
         steps = get_steps(x)
         if steps == 16:
