@@ -6,11 +6,11 @@ colorList = list(Color("blue").range_to(Color("red"), 90))
 # for x in colorList:
 #     print(str(x))
 
-startX = 1000
+startX = 1500
 startY = 100
-turnRightAngle = 15
-turnLeftAngle = 25
-travelLength = 6
+turnRightAngle = 5
+turnLeftAngle = 10
+travelLength = 10
 
 turtle.bgcolor("black")
 turtle.Screen().setup(1920, 1080)
