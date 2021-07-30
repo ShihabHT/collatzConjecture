@@ -11,5 +11,5 @@ Though it's not been proven right, it also has not been proven wrong
 
 In this program I tried to generate a visual on what's going on.
 
-Here's a sample phoo
+Here's a sample photo
 <img src="sample.png" width=1920>
