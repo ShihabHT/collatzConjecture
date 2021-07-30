@@ -6,9 +6,12 @@ turtle.Screen().setup(1500, 900)
 turtle.Screen().setworldcoordinates(0, 0, 1500, 900)
 
 t = turtle.Turtle()
-t.setpos(500, 200)
-t.pencolor("pink")
 t.penup()
+t.setpos(500, 200)
+t.pendown()
+t.pencolor("pink")
+t.pensize(5)
+t.forward(200)
 
 
 def get_steps(num):
