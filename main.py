@@ -2,15 +2,15 @@
 import turtle
 from colour import Color
 
-colorList = list(Color("blue").range_to(Color("red"), 90))
+colorList = list(Color("blue").range_to(Color("red"), 100))
 # for x in colorList:
 #     print(str(x))
 
-startX = 1500
-startY = 100
+startX = 600
+startY = 450
 turnRightAngle = 5
-turnLeftAngle = 10
-travelLength = 10
+turnLeftAngle = 5
+travelLength = 8
 
 turtle.bgcolor("black")
 turtle.Screen().setup(1920, 1080)
@@ -50,7 +50,7 @@ def get_steps(num):
 
 if __name__ == '__main__':
     stepsCount = 0
-    for x in range(1000, 1100):
+    for x in range(10000, 11000):
         print("Working on", x)
         steps = get_steps(x)
         if steps == 16:
