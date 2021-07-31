@@ -19,7 +19,7 @@ turtle.Screen().setworldcoordinates(0, 0, 1920, 1080)
 t = turtle.Turtle()
 t.penup()
 t.pensize(2)
-turtle.tracer(2, 0)
+turtle.tracer(0, 0)  # turtle.tracer(0, 0) turns animation off, gives fastest possible speed
 
 
 def get_steps(num):
@@ -43,7 +43,6 @@ def get_steps(num):
             colorIndex += 1
             t.pencolor(str(colorList[colorIndex]))
         print(count)
-
 
     t.penup()
     return count
