@@ -14,3 +14,5 @@ In this program I tried to generate a visual on what's going on.
 
 Here's a sample photo
 <img src="sample.png" width=1920>
+<br><br>
+<img src="sample1.png" width=1920>
