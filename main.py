@@ -27,8 +27,8 @@ def get_steps(num):
     t.setheading(90)
     t.pendown()
     count = 0
-    colorIndex = 0
-    t.pencolor(str(colorList[colorIndex]))
+    color_index = 0
+    t.pencolor(str(colorList[color_index]))
     while num != 1:
         if num % 2 == 0:
             t.right(turnRightAngle)
@@ -40,8 +40,8 @@ def get_steps(num):
             t.forward(travelLength)
             num = num * 3 + 1
             count += 1
-            colorIndex += 1
-            t.pencolor(str(colorList[colorIndex]))
+            color_index += 1
+            t.pencolor(str(colorList[color_index]))
         print(count)
 
     t.penup()
