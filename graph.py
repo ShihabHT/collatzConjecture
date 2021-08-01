@@ -5,13 +5,15 @@ from colour import Color
 colorList = list(Color("blue").range_to(Color("red"), 50))
 
 startX = 50
-startY = 50
+startY = 70
 turnRightAngle = 5
 turnLeftAngle = 5
 travelLength = 8
 
 display_width = 1920
 display_height = 1080
+x_axis_padding = 50
+y_axis_padding = 30
 show_steps_x = 120
 show_steps_y = 9500
 x_axis_multiplier = (display_width-startX-50)/show_steps_x
@@ -33,13 +35,13 @@ def create_x_axis():
     t.write("(0, 0)", align="center")
     t.setpos(startX, startY)
     t.pendown()
-    x_axis_length = display_width - startX-50
+    x_axis_length = display_width - startX-x_axis_padding
     print("xAxisLength", x_axis_length)
     each_section = int(x_axis_length/10)
     print("eachSection", each_section)
     each_steps = show_steps_x/10
     step_count = 1
-    for section in range(startX+each_section, display_width-49, each_section):
+    for section in range(startX+each_section, display_width-x_axis_padding+1, each_section):
         t.goto(section-(each_section/2), startY)
         t.goto(section-(each_section/2), startY+10)
         t.goto(section-(each_section/2), startY)
@@ -58,13 +60,13 @@ def create_x_axis():
 def create_y_axis():
     t.setpos(startX, startY)
     t.pendown()
-    y_axis_length = display_height - startY-50
+    y_axis_length = display_height - startY-y_axis_padding
     print("xAxisLength", y_axis_length)
     each_section = int(y_axis_length/10)
     print("eachSection", each_section)
     each_steps = show_steps_y/10
     step_count = 1
-    for section in range(startY+each_section, display_height-49, each_section):
+    for section in range(startY+each_section, display_height-y_axis_padding+1, each_section):
         t.goto(startX, section)
         t.penup()
         t.goto(startX-20, section-8)
