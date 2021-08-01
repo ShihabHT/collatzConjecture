@@ -2,17 +2,20 @@
 import turtle
 from colour import Color
 
-colorList = list(Color("blue").range_to(Color("red"), 100))
+colorList = list(Color("blue").range_to(Color("red"), 50))
 
 startX = 50
 startY = 50
 turnRightAngle = 5
 turnLeftAngle = 5
 travelLength = 8
-show_steps_x = 200
-show_steps_y = 500
+
 display_width = 1920
 display_height = 1080
+show_steps_x = 120
+show_steps_y = 9500
+x_axis_multiplier = (display_width-startX-50)/show_steps_x
+y_axis_multiplier = (display_height-startY-50)/show_steps_y
 
 turtle.bgcolor("black")
 turtle.Screen().setup(display_width, display_height)
@@ -21,11 +24,11 @@ turtle.Screen().setworldcoordinates(0, 0, display_width, display_height)
 t = turtle.Turtle()
 t.penup()
 t.pensize(2)
+t.pencolor("#49FF00")
 turtle.tracer(1, 0)  # turtle.tracer(0, 0) turns animation off, gives fastest possible speed
 
 
 def create_x_axis():
-    t.pencolor("pink")
     t.setpos(startX, startY-20)
     t.write("(0, 0)", align="center")
     t.setpos(startX, startY)
@@ -53,7 +56,6 @@ def create_x_axis():
 
 
 def create_y_axis():
-    t.pencolor("pink")
     t.setpos(startX, startY)
     t.pendown()
     y_axis_length = display_height - startY-50
@@ -76,26 +78,33 @@ def create_y_axis():
 
 
 def get_steps(num):
-    t.setpos(startX, startY)
+    t.setpos(startX, startY+num*y_axis_multiplier)
     t.setheading(90)
     t.pendown()
     count = 0
     color_index = 0
+    peak = num
     t.pencolor(str(colorList[color_index]))
     while num != 1:
         if num % 2 == 0:
-            t.right(turnRightAngle)
-            t.forward(travelLength)
+            # t.right(turnRightAngle)
+            # t.forward(travelLength)
             num = num / 2
             count += 1
+            t.goto(startX+count*x_axis_multiplier, startY+(num*y_axis_multiplier))
         else:
-            t.left(turnLeftAngle)
-            t.forward(travelLength)
+            # t.left(turnLeftAngle)
+            # t.forward(travelLength)
             num = num * 3 + 1
             count += 1
             color_index += 1
+            if num > peak:
+                peak = num
+            t.goto(startX+count*x_axis_multiplier, startY+(num*y_axis_multiplier))
             t.pencolor(str(colorList[color_index]))
+            t.write(int(num))
         print(count)
+    print("The peak value for the number is", peak)
 
     t.penup()
     return count
@@ -104,6 +113,8 @@ def get_steps(num):
 if __name__ == '__main__':
     create_x_axis()
     create_y_axis()
+    get_steps(27)
+    get_steps(55)
     turtle.done()
 
     # stepsCount = 0
