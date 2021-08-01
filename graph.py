@@ -116,12 +116,3 @@ if __name__ == '__main__':
     get_steps(27)
     # get_steps(55)
     turtle.done()
-
-    # stepsCount = 0
-    # for x in range(1000, 1100):
-    #     print("Working on", x)
-    #     steps = get_steps(x)
-    #     if steps == 16:
-    #         stepsCount += 1
-    #         print(x, "takes", steps, "steps")
-    # print("Total 16 steps takes", stepsCount, "numbers")
