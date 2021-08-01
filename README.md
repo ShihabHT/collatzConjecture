@@ -17,3 +17,7 @@ Here's a sample photo
 <br><br>
 Here's another
 <img src="sample1.PNG" width=1920>
+<br><br>
+I've also tried to add a visual with graph which shows how the value changes, and its crest and trough<br>
+Here's a visual in graph
+<img src="sample_graph.png" width=1920>
