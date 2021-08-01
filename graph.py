@@ -89,14 +89,10 @@ def get_steps(num):
     t.pencolor(str(colorList[color_index]))
     while num != 1:
         if num % 2 == 0:
-            # t.right(turnRightAngle)
-            # t.forward(travelLength)
             num = num / 2
             count += 1
             t.goto(startX+count*x_axis_multiplier, startY+(num*y_axis_multiplier))
         else:
-            # t.left(turnLeftAngle)
-            # t.forward(travelLength)
             num = num * 3 + 1
             count += 1
             color_index += 1
@@ -115,6 +111,9 @@ def get_steps(num):
 if __name__ == '__main__':
     create_x_axis()
     create_y_axis()
-    get_steps(27)
+
+    for x in range(100, 200):
+        get_steps(x)
+    # get_steps(27)
     # get_steps(55)
     turtle.done()
