@@ -88,7 +88,6 @@ def get_steps(num):
 if __name__ == '__main__':
     create_x_axis()
     create_y_axis()
-    print("done")
     turtle.done()
 
     # stepsCount = 0
