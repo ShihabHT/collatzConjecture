@@ -9,7 +9,8 @@ startY = 50
 turnRightAngle = 5
 turnLeftAngle = 5
 travelLength = 8
-
+show_steps_x = 200
+show_steps_y = 500
 display_width = 1920
 display_height = 1080
 
@@ -25,17 +26,27 @@ turtle.tracer(1, 0)  # turtle.tracer(0, 0) turns animation off, gives fastest po
 
 def create_x_axis():
     t.pencolor("pink")
+    t.setpos(startX, startY-20)
+    t.write("(0, 0)", align="center")
     t.setpos(startX, startY)
     t.pendown()
     x_axis_length = display_width - startX-50
     print("xAxisLength", x_axis_length)
     each_section = int(x_axis_length/10)
     print("eachSection", each_section)
+    each_steps = show_steps_x/10
+    step_count = 1
     for section in range(startX+each_section, display_width-49, each_section):
         t.goto(section-(each_section/2), startY)
         t.goto(section-(each_section/2), startY+10)
         t.goto(section-(each_section/2), startY)
         t.goto(section, startY)
+        t.penup()
+        t.goto(section, startY-20)
+        t.write(int(each_steps*step_count), align="center")
+        step_count += 1
+        t.goto(section, startY)
+        t.pendown()
         t.goto(section, startY+10)
         t.goto(section, startY)
     t.penup()
@@ -47,13 +58,18 @@ def create_y_axis():
     t.pendown()
     y_axis_length = display_height - startY-50
     print("xAxisLength", y_axis_length)
-    each_section = int(y_axis_length/5)
+    each_section = int(y_axis_length/10)
     print("eachSection", each_section)
+    each_steps = show_steps_y/10
+    step_count = 1
     for section in range(startY+each_section, display_height-49, each_section):
-        t.goto(startX, section-(each_section/2))
-        t.goto(startX+10, section-(each_section/2))
-        t.goto(startX, section-(each_section/2))
         t.goto(startX, section)
+        t.penup()
+        t.goto(startX-20, section-8)
+        t.write(int(each_steps*step_count), align="center")
+        step_count += 1
+        t.goto(startX, section)
+        t.pendown()
         t.goto(startX+10, section)
         t.goto(startX, section)
     t.penup()
@@ -88,7 +104,6 @@ def get_steps(num):
 if __name__ == '__main__':
     create_x_axis()
     create_y_axis()
-    print("done")
     turtle.done()
 
     # stepsCount = 0
