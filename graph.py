@@ -4,20 +4,18 @@ from colour import Color
 
 colorList = list(Color("blue").range_to(Color("red"), 50))
 
-startX = 50
-startY = 70
-turnRightAngle = 5
-turnLeftAngle = 5
-travelLength = 8
-
 display_width = 1920
 display_height = 1080
+
+startX = 50
+startY = 70
 x_axis_padding = 50
 y_axis_padding = 30
-show_steps_x = 120
-show_steps_y = 9500
-x_axis_multiplier = (display_width-startX-50)/show_steps_x
-y_axis_multiplier = (display_height-startY-50)/show_steps_y
+
+x_axis_steps = 120
+y_axis_steps = 9500
+x_axis_multiplier = (display_width-startX-x_axis_padding) / x_axis_steps
+y_axis_multiplier = (display_height-startY-y_axis_padding) / y_axis_steps
 
 turtle.bgcolor("black")
 turtle.Screen().setup(display_width, display_height)
@@ -39,7 +37,7 @@ def create_x_axis():
     print("xAxisLength", x_axis_length)
     each_section = int(x_axis_length/10)
     print("eachSection", each_section)
-    each_steps = show_steps_x/10
+    each_steps = x_axis_steps / 10
     step_count = 1
     for section in range(startX+each_section, display_width-x_axis_padding+1, each_section):
         t.goto(section-(each_section/2), startY)
@@ -64,7 +62,7 @@ def create_y_axis():
     print("xAxisLength", y_axis_length)
     each_section = int(y_axis_length/10)
     print("eachSection", each_section)
-    each_steps = show_steps_y/10
+    each_steps = y_axis_steps / 10
     step_count = 1
     for section in range(startY+each_section, display_height-y_axis_padding+1, each_section):
         t.goto(startX, section)
@@ -101,11 +99,9 @@ def get_steps(num):
             t.goto(startX+count*x_axis_multiplier, startY+(num*y_axis_multiplier))
             t.pencolor(str(colorList[color_index]))
             t.write(int(num), align='center')
-        print(count)
-    print("The peak value for the number is", peak)
 
     t.penup()
-    return count
+    return count, int(peak)
 
 
 if __name__ == '__main__':
@@ -113,7 +109,11 @@ if __name__ == '__main__':
     create_y_axis()
 
     for x in range(100, 200):
-        get_steps(x)
-    # get_steps(27)
+        steps, peak_value = get_steps(x)
+        print(x, "takes", steps, "steps and the peak value is", peak_value)
+
+    print("\nProcess Finished!")
+    # get_steps(633)  # for testing if it matches 1900 in y axis, y_axis_multiplier
     # get_steps(55)
+    # get_steps(27)
     turtle.done()
