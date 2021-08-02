@@ -59,7 +59,7 @@ def create_y_axis():
     t.setpos(startX, startY)
     t.pendown()
     y_axis_length = display_height - startY-y_axis_padding
-    print("xAxisLength", y_axis_length)
+    print("yAxisLength", y_axis_length)
     each_section = int(y_axis_length/10)
     print("eachSection", each_section)
     each_steps = y_axis_steps / 10
