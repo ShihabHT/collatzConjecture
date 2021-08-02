@@ -113,7 +113,7 @@ if __name__ == '__main__':
         print(x, "takes", steps, "steps and the peak value is", peak_value)
 
     print("\nProcess Finished!")
-    # get_steps(633)  # for testing if it matches 1900 in y axis, y_axis_multiplier
+    # get_steps(633)  # For testing if it matches 1900 in y axis, y_axis_multiplier
     # get_steps(55)
     # get_steps(27)
     turtle.done()
