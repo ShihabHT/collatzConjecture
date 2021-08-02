@@ -81,27 +81,27 @@ def get_steps(num):
     t.setpos(startX, startY+num*y_axis_multiplier)
     t.setheading(90)
     t.pendown()
-    count = 0
+    operation_count = 0
     color_index = 0
     peak = num
     t.pencolor(str(colorList[color_index]))
     while num != 1:
         if num % 2 == 0:
             num = num / 2
-            count += 1
-            t.goto(startX+count*x_axis_multiplier, startY+(num*y_axis_multiplier))
+            operation_count += 1
+            t.goto(startX+operation_count*x_axis_multiplier, startY+(num*y_axis_multiplier))
         else:
             num = num * 3 + 1
-            count += 1
+            operation_count += 1
             color_index += 1
             if num > peak:
                 peak = num
-            t.goto(startX+count*x_axis_multiplier, startY+(num*y_axis_multiplier))
+            t.goto(startX+operation_count*x_axis_multiplier, startY+(num*y_axis_multiplier))
             t.pencolor(str(colorList[color_index]))
             t.write(int(num), align='center')
 
     t.penup()
-    return count, int(peak)
+    return operation_count, int(peak)
 
 
 if __name__ == '__main__':

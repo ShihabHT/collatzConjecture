@@ -21,3 +21,6 @@ Here's another
 I've also tried to add a visual with graph which shows how the value changes, and its crest and trough<br>
 Here's a visual in graph
 <img src="sample_graph.png" width=1920>
+<br><br>
+Here's another one for 100 numbers (range(100 , 200))
+<img src="sample_graph1.png" width=1920>
