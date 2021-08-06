@@ -6,7 +6,7 @@ It states that any positive integer you pick will enentually be reduced to 1 fol
 - If the number is even divide it by 2
 - If it's odd, multiply 3 and add 1
 
-If you repeat these two operation you will reach 1 eventually.<br>
+If you repeat these two operations you will reach 1 eventually.<br>
 Though it's not been proven right, it also has not been proven wrong. <br>
 But mathematicians have tested by brute force every single number upto 2<sup>68</sup> and none of them disproves the conjecture
 
