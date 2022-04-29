@@ -50,7 +50,7 @@ def get_steps(num):
 
 if __name__ == '__main__':
     stepsCount = 0
-    for x in range(10000, 11000):
+    for x in range(10, 200):
         print("Working on", x)
         steps = get_steps(x)
         if steps == 16:
